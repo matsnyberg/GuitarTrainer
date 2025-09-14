@@ -1,0 +1,124 @@
+
+
+element.style {
+}
+
+
+* {
+  /* box-sizing: inherit; */
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  font: 1.2em sans-serif;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.page-header,
+.page-footer {
+  background-color: rgb(240 200 200);
+  padding: 20px;
+
+    color:  rgb(240 100 100);
+}
+
+
+.page-header {
+    text-size: 60px;
+    text-align: center;
+
+    display: inline-block;
+}
+
+
+.page-body {
+    align-content: center;
+    text-align: center;
+}
+
+.page-body p {
+  border: 1px solid grey;
+}
+
+div.page-title {
+    font-size: 60px;
+    font-weight: 400;
+    color: rgb(136, 68, 0);
+}
+
+.page-header > div.level-selector {
+    float: right;
+}
+
+#tempo {
+    max-width: 50%;
+    margin: 30px auto;
+}
+
+#pitch {
+    text-align: center;
+    color: rgb(136, 68, 0);
+    font-weight: 400;
+    font-size: 200px;
+}
+
+#pitch-left, #pitch-right {
+    color: rgb(136, 119, 68);
+        font-size: 80px;
+}
+
+#tempo {}
+#slider {}
+#custom-handle {}
+
+
+#custom-handle {
+    width: 3em;
+    height: 1.6em;
+    top: 50%;
+    margin-top: -.8em;
+    text-align: center;
+    line-height: 1.6em;
+    background-color: blue;
+    color: white;
+}
+
+
+div.level-selector {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+
+fieldset {
+    border: 0;
+}
+label {
+    display: block;
+    margin: 30px 0 0 0;
+}
+.overflow {
+    height: 100px;
+}
+
+form,
+fieldset,
+select {
+    display: inline-block;
+    margin: 0;
+    padding:0;
+}
+
+

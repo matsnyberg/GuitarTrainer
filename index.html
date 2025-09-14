@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">	
+	<link rel="stylesheet" href="style.css"/>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>	
+    </head>
+    <body>
+	<div class="wrapper">
+	    <header class="page-header">
+		<div class="page-title">Guitar Trainer</div>
+		<div class="level-selector">
+		    <form action="#">
+			<fieldset>
+			    <select name="speed" id="speed">
+				<option id="pitches" selected="selected">
+				    Pitches
+				</option>
+				<option id="basic">Basic Chords</option>
+				<option id="extended" >Extended Chords</option>
+				<option id="all" >All Chords</option>
+			    </select>
+			</fieldset>		    
+		    </form>
+		</div>
+	    </header>
+	    <main class="page-body">
+		<div id="tempo" >
+		    <div id="slider">
+			<div id="custom-handle" class="ui-slider-handle"></div>
+		    </div>
+		</div>	    
+		<div id="pitch" >
+		    <span id="pitch-left" ></span>
+		    <span id="pitch-center" ></span>
+		    <span id="pitch-right" ></span>		    
+		</div>
+	    </main>
+	    <footer class="page-footer">
+		Guitar Trainer is a free JavaScript hack.
+	    </footer>
+		
+	</div>
+    </body>
+    <script type="text/JavaScript" src="script.js"></script>
+</html>
