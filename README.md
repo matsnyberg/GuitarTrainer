@@ -16,6 +16,13 @@ GuitarTrainer features
    - major and minor
    - extended chords
    - sus, dim and aug chords
+   
+Running Demo
+------------
+
+
+There ia a runnung demo
+<a href="http://matsnyberg.com/GuitarTrainer/">here</a>.
 
 
 To install and run
