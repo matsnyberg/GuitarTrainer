@@ -19,11 +19,13 @@ $(document).ready(function(){
 	var seventh = $sevenths[die($sevenths.length) - 1];
 	return pitch.concat(seventh);
     }
-    
+
+
     var rotate = function() {
-	    $('span#pitch-left').text($('span#pitch-center').text());
-	    $('span#pitch-center').text($('span#pitch-right').text());	
+	$('span#pitch-left').text($('span#pitch-center').text());
+	$('span#pitch-center').text($('span#pitch-right').text());	
 	$('span#pitch-right').text(getItem());
+	metronomeClicks();
     };
    
     var getPitch = function(){
@@ -99,9 +101,29 @@ $(document).ready(function(){
 
     var $BPM = 120;
 
-    function tempo() {
-	return 1000*60*4/$BPM;
+    function getBPMms() {
+	return 1000*60/$BPM;
     }
+
+    function tempo() {
+	return getBPMms() * 4;
+    }
+
+    var audio = new Audio('click.wav');
+
+
+    function metronomeClicks() {
+	var ms = getBPMms();
+	try {
+	    audio.play();
+	    for (let i = 1; i < 4; i++) {
+		setTimeout(function(){
+		    audio.play();
+		}, ms * i);
+	    }
+	} catch(err) {}	    
+    }
+
     
     var myFunction = function() {
 	console.log("rotate...");	
