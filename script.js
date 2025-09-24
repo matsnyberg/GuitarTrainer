@@ -1,19 +1,33 @@
 $(document).ready(function(){
     
     
+
+    // Constant declarations
     
-    var $pitches = ["A", "A#", "B", "C",
+    const $pitches = ["A", "A#", "B", "C",
 		"C#", "D", "D#", "E",
 		    "F", "F#", "G", "G#",
 		    "Bb", "Db", "Eb", "Gb", "Ab"];
 
-    var $sevenths = ["7", "m7", "^", "add9"];    
-    var $quali = ["dim7", "dim", "sus", "sus2", "aug"];
+    const $sevenths = ["7", "m7", "^", "add9"];    
+    const $quali = ["dim7", "dim", "sus", "sus2", "aug"];
+
+
+    
+
+    // Utility functions
+    
 
     function die(sides){
 	return Math.floor(Math.random() * ((sides - 1) + 1) + 1);
     }
 
+
+
+    
+    // Chord construction functions
+
+    
     function getSeventhChord()  {
 	var pitch = $pitches[die($pitches.length) - 1];
 	var seventh = $sevenths[die($sevenths.length) - 1];
@@ -21,20 +35,20 @@ $(document).ready(function(){
     }
 
 
-    var rotate = function() {
+    const rotate = function() {
 	$('span#pitch-left').text($('span#pitch-center').text());
 	$('span#pitch-center').text($('span#pitch-right').text());	
 	$('span#pitch-right').text(getItem());
 	metronomeClicks();
     };
    
-    var getPitch = function(){
+    const getPitch = function(){
 	$i = Math.floor(Math.random() * $pitches.length);
 	return $pitches[$i];
     };
     
     
-    var getBasicChord = function() {
+    const getBasicChord = function() {
 	$chord = (getPitch)();
 	if( Math.random() > .5){
 	    $chord = $chord.concat("m");
@@ -43,7 +57,7 @@ $(document).ready(function(){
     };
 
 
-    var getExtendedChord = function() {
+    const getExtendedChord = function() {
 	if( Math.random() > .6 ){
 	    return getSeventhChord();;
 	}	
@@ -56,7 +70,7 @@ $(document).ready(function(){
     };
 
 
-    var getAllChord = function() {
+    const getAllChord = function() {
 	if( Math.random() > .75 ){
 	    return getSeventhChord();;
 	}	
@@ -77,7 +91,8 @@ $(document).ready(function(){
 
 
 
-    var modes = [
+
+    const modes = [
 	getPitch,
 	getBasicChord,
 	getExtendedChord,
@@ -94,7 +109,6 @@ $(document).ready(function(){
 
     
 
-    console.log("starting...");	
     $('span#pitch-right').text(getItem());
     $('span#pitch-center').text(getItem());
     $('span#pitch-left').text(getItem());
@@ -110,23 +124,38 @@ $(document).ready(function(){
     }
 
     var audio = new Audio('click.wav');
+    var metronomeON = 0;
+
+    var metronomeIO = $( "#metronomeIO" ).button();
+
+    $( "#metronomeIO" ).on( "click", function() {
+	if( metronomeON == 0 ) {
+	    metronomeON = 1;
+	} else {
+	    metronomeON = 0;
+	}
+    });
+
+
 
 
     function metronomeClicks() {
-	var ms = getBPMms();
-	try {
-	    audio.play();
-	    for (let i = 1; i < 4; i++) {
-		setTimeout(function(){
-		    audio.play();
-		}, ms * i);
-	    }
-	} catch(err) {}	    
+	console.log();
+	if( metronomeON == 1 ) {
+	    var ms = getBPMms();
+	    try {
+		audio.play();
+		for (let i = 1; i < 4; i++) {
+		    setTimeout(function(){
+			audio.play();
+		    }, ms * i);
+		}
+	    } catch(err) {}
+	}
     }
 
     
     var myFunction = function() {
-	console.log("rotate...");	
 	(rotate)();
 	setTimeout(myFunction, tempo());
     }

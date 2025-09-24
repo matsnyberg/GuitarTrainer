@@ -7,15 +7,19 @@
 	<link rel="stylesheet" href="/resources/demos/style.css">	
 	<link rel="stylesheet" href="style.css"/>
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-	<script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>	
+	<script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+	<script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
     </head>
     <body>
 	<div class="wrapper">
 	    <header class="page-header">
 		<div class="page-title">Guitar Trainer</div>
+	    </header>
+	    <main class="page-body">
 		<div class="level-selector">
 		    <form action="#">
 			<fieldset>
+			    <input type="button" value="Metronome" name="metronomeIO" id="metronomeIO">
 			    <select name="speed" id="speed">
 				<option id="pitches" selected="selected">
 				    Pitches
@@ -27,8 +31,7 @@
 			</fieldset>		    
 		    </form>
 		</div>
-	    </header>
-	    <main class="page-body">
+		
 		<div id="tempo" >
 		    <div id="slider">
 			<div id="custom-handle" class="ui-slider-handle"></div>
